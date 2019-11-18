@@ -4,14 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def hello
-    if !session[:name].exists?
+    if !session[:name]
       redirect_to controller: 'sessions', action: 'new'
     end
-   end
+  end
 
-   def current_user
-     session[:name]
-   end
+  def current_user
+    session[:name]
+  end
 
    private
 
